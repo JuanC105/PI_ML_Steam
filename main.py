@@ -54,21 +54,21 @@ sentiment_analysis_sentiment_analysis_developer = pd.read_csv('./API_csv/sentime
 
 
 
-ML_games_model = pd.read_csv('./API_csv/ML_games_model.csv', sep=',')
+#ML_games_model = pd.read_csv('./API_csv/ML_games_model.csv', sep=',')
 
-ML_games_selected2 = pd.read_csv('./API_csv/ML_games_selected2.csv', sep=',', header=None)
-ML_games_selected2 = ML_games_selected2[0]
+#ML_games_selected2 = pd.read_csv('./API_csv/ML_games_selected2.csv', sep=',', header=None)
+#ML_games_selected2 = ML_games_selected2[0]
 
-ML_games_u_p = pd.read_csv('./API_csv/ML_games_u_p.csv', sep=',')
+#ML_games_u_p = pd.read_csv('./API_csv/ML_games_u_p.csv', sep=',')
 
-vectorizer = CountVectorizer()
-vectorized = vectorizer.fit_transform(ML_games_selected2)
+#vectorizer = CountVectorizer()
+#vectorized = vectorizer.fit_transform(ML_games_selected2)
 
-similarities = cosine_similarity(vectorized)
+#similarities = cosine_similarity(vectorized)
 
-games_vect = pd.DataFrame(data = similarities, columns=ML_games_model['id'], index=ML_games_model['id']).reset_index()
+#games_vect = pd.DataFrame(data = similarities, columns=ML_games_model['id'], index=ML_games_model['id']).reset_index()
 
-games_concat = pd.concat([ML_games_u_p, games_vect], axis=1)
+#games_concat = pd.concat([ML_games_u_p, games_vect], axis=1)
 
 @app.get("/")
 def root():
@@ -185,20 +185,20 @@ async def sentiment_analysis(year: int):
     
     return sentiment_dict
 
-@app.get("/game_recommendation/")
-async def game_recommendation(id: int):
-    try:
-        print('Wait a minute and you will see our recommendations. Enjoy! ')
-        recommendations = pd.DataFrame(games_concat.nlargest(6,id)['id'])
-        recommendations = recommendations[recommendations['id']!=id]
-        title = pd.DataFrame(games_concat.nlargest(6,id)['title'])
-        price = pd.DataFrame(games_concat.nlargest(6,id)['price'])
-        url = pd.DataFrame(games_concat.nlargest(6,id)['url'])
-        result2 = pd.concat([recommendations,title, price[1:11],url[1:]], axis = 1)
-        result2 = result2.to_dict()
-        return result2
-    except:
-        print('Sorry, we can not find a suitable match. Try a different game! ')
+#@app.get("/game_recommendation/")
+#async def game_recommendation(id: int):
+ #   try:
+  #      print('Wait a minute and you will see our recommendations. Enjoy! ')
+   #     recommendations = pd.DataFrame(games_concat.nlargest(6,id)['id'])
+    #    recommendations = recommendations[recommendations['id']!=id]
+     #   title = pd.DataFrame(games_concat.nlargest(6,id)['title'])
+      #  price = pd.DataFrame(games_concat.nlargest(6,id)['price'])
+       # url = pd.DataFrame(games_concat.nlargest(6,id)['url'])
+        #result2 = pd.concat([recommendations,title, price[1:11],url[1:]], axis = 1)
+        #result2 = result2.to_dict()
+        #return result2
+    #except:
+     #   print('Sorry, we can not find a suitable match. Try a different game! ')
 
 import nest_asyncio
 import uvicorn

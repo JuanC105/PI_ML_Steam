@@ -69,7 +69,7 @@ tqdm==4.66.1
 traitlets==5.9.0
 typing_extensions==4.7.1
 tzdata==2023.3
-ujson==5.8.0
+ujson==5.7.0
 uvicorn==0.23.2
 watchfiles==0.20.0
 wcwidth==0.2.6

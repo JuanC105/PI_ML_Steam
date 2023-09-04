@@ -52,7 +52,7 @@ sentiment_analysis_sentiment_analysis_developer = pd.read_csv('./API_csv/sentime
 
 
 
-games_concat = pd.read_csv('./API_csv\ML_games_concat.csv', sep=',')
+games_concat = pd.read_csv('./API_csv/ML_games_concat.csv', sep=',')
 games_concat['id'] = games_concat['id'].astype(int)
 
 @app.get("/")

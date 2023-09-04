@@ -1,0 +1,10 @@
+/PI_ML_Steam_venv
+PI_ML_Steam_venv
+PI_ML_Steam_venv/
+games.csv
+items.csv
+reviews.csv
+*.json
+prueba.py
+prueba.ipynb
+.gitattributes

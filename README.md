@@ -12,6 +12,7 @@
 
 Here're some of the project's best features:
 
+*   game\_recommendation: Receives an id as int, and returns 5 game recommendations with their title, url and price.
 *   user\_data: Receives a user\_id as a string and returns the amount of money spent according to the items you have in your account the percentage of recommendation according to the reviews of your accounts and the amount of items you have in your account.
 *   countreviews: Receives two input variables start\_date and end\_date. And it returns the number of users who made reviews between that period and the average recommendation percentage among this selected group.
 *   genre: Receives a genre as a string and returns the position in the ranking of this genre according to the time played.
